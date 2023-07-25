@@ -34,6 +34,12 @@
       }
     ]
     // Write your code here
+    var ul = document.getElementById("menu");
+    for (dish of menu.filter((a)=>a.isVegetarian)) {
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(dish.name));
+      ul.appendChild(li);
+    }
 
   </script>
 </body>

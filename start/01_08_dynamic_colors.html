@@ -18,7 +18,11 @@
 
   <script>
     // Write your code here
-
+    const setBGColor = (color) =>
+      () => document.querySelector('body').style.backgroundColor = color;
+    document.getElementById("blue").onclick = setBGColor("blue");
+    document.getElementById("pink").onclick = setBGColor("pink");
+    document.getElementById("green").onclick = setBGColor("green");
   </script>
 </body>
 

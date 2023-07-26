@@ -16,7 +16,21 @@
 
   <script>
     // Write your code here
-
+    const vendors = [
+      ["pizza", "pasta"],
+      ["pizza", "calzones"],
+      ["lobster"],
+      ["calzones"] ];
+    const set = new Set();
+    for (vendor of vendors) 
+      for (dish of vendor)
+        set.add(dish);
+    const ul = document.getElementById("combined-menu");
+    for (dish of set) {
+      let li = document.createElement('li');
+      li.appendChild(document.createTextNode(dish));
+      ul.appendChild(li);
+    }
   </script>
 </body>
 

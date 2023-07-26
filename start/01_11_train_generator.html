@@ -16,7 +16,15 @@
 
   <script>
     // Write your code here
-
+    const stations = [ "Poughkeepsie", "Newburgh", 
+      "Peekskill", "Yonkers", "Bronx", "Grand Central" ];
+    const stationGen = function*() {
+      for (station of stations) yield station;
+    }();
+    document.getElementById("next-stop").addEventListener('click', () => { 
+      let result = stationGen.next();
+      console.log( result['done'] ? "We made it!" : result['value'] );
+    });
   </script>
 </body>
 

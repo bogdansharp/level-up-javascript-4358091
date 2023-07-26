@@ -21,9 +21,14 @@
     const stationGen = function*() {
       for (station of stations) yield station;
     }();
-    document.getElementById("next-stop").addEventListener('click', () => { 
+    document.getElementById("next-stop").addEventListener('click', (event) => { 
       let result = stationGen.next();
-      console.log( result['done'] ? "We made it!" : result['value'] );
+      if (result['done']) {
+        console.log("We made it!");
+        event.target.setAttribute("disabled", true);
+      } else {
+        console.log(result['value']);
+      }
     });
   </script>
 </body>

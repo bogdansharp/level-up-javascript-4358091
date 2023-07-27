@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Five Friends</title>
+</head>
+
+<body>
+  <!-- To run this file right click the file in the navigation bar and select "Open with live server. Then open the developer tools in the browser and head to the console window."-->
+
+  <!-- Use this element to generate your friends -->
+  <div id="timeline"></div>
+
+  <script>
+    // Write your code here
+    const url = 'https://randomuser.me/api/?results=';
+    const line = document.getElementById("timeline");
+    const addUsers = async function (n) {
+      let response = await fetch(url + n);
+      let data = await response.json();
+      let i = 1;
+      for (result of data.results) {
+        let num = document.createElement('span');
+        num.textContent = i++;
+        num.style.marginLeft = "20px";
+        num.style.marginRight = "5px";
+        num.style.verticalAlign = "top";
+        line.appendChild(num);
+        let img = document.createElement('img');
+        img.src = result.picture.large;
+        line.appendChild(img);
+      }
+    }
+    addUsers(5);
+  </script>
+</body>
+
+</html>

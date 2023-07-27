@@ -19,7 +19,6 @@
     const url = 'https://randomuser.me/api/';
     const line = document.getElementById("timeline");
     const addUser = function(n) {
-      let result = await fetch(url); 
       fetch(url)
         .then(response => {
           if (!response.ok) { throw new Error('Network response was not ok'); }
